@@ -62,11 +62,6 @@ const AppNavigationMixin = {
               route: '/operations/factory-reset',
             },
             {
-              id: 'key-clear',
-              label: i18n.global.t('appNavigation.keyClear'),
-              route: '/operations/key-clear',
-            },
-            {
               id: 'firmware',
               label: i18n.global.t('appNavigation.firmware'),
               route: '/operations/firmware',
