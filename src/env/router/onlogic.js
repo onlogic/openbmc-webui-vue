@@ -24,7 +24,6 @@ import ServerPowerOperations from '@/views/Operations/ServerPowerOperations';
 import Certificates from '@/views/SecurityAndAccess/Certificates';
 import VirtualMedia from '@/views/Operations/VirtualMedia';
 import Power from '@/views/ResourceManagement/Power';
-import SnmpAlerts from '@/views/Settings/SnmpAlerts';
 import i18n from '@/i18n';
 
 const roles = {
@@ -164,13 +163,7 @@ const routes = [
         },
       },
       {
-        path: '/settings/snmp-alerts',
-        name: 'snmp-alerts',
-        component: SnmpAlerts,
-        meta: {
-          title: i18n.global.t('appPageTitle.snmpAlerts'),
-        },
-      },
+        // snmp-alerts route removed for OnLogic
       {
         path: '/operations/factory-reset',
         name: 'factory-reset',
