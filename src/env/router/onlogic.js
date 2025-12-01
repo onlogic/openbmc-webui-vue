@@ -5,8 +5,6 @@ import DateTime from '@/views/Settings/DateTime';
 import FactoryReset from '@/views/Operations/FactoryReset';
 import Firmware from '@/views/Operations/Firmware';
 import Inventory from '@/views/HardwareStatus/Inventory';
-import Kvm from '@/views/Operations/Kvm';
-import KvmConsole from '@/views/Operations/Kvm/KvmConsole';
 import Sessions from '@/views/SecurityAndAccess/Sessions';
 import Ldap from '@/views/SecurityAndAccess/Ldap';
 import UserManagement from '@/views/SecurityAndAccess/UserManagement';
@@ -19,7 +17,6 @@ import PowerRestorePolicy from '@/views/Settings/PowerRestorePolicy';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Operations/RebootBmc';
 import Policies from '@/views/SecurityAndAccess/Policies';
-import KeyClear from '@/views/Operations/KeyClear';
 import Sensors from '@/views/HardwareStatus/Sensors';
 import SerialOverLan from '@/views/Operations/SerialOverLan';
 import SerialOverLanConsole from '@/views/Operations/SerialOverLan/SerialOverLanConsole';
@@ -74,14 +71,6 @@ const routes = [
         component: SerialOverLanConsole,
         meta: {
           title: i18n.global.t('appPageTitle.serialOverLan'),
-        },
-      },
-      {
-        path: 'kvm',
-        name: 'kvm-console',
-        component: KvmConsole,
-        meta: {
-          title: i18n.global.t('appPageTitle.kvm'),
         },
       },
     ],
@@ -190,22 +179,7 @@ const routes = [
           title: i18n.global.t('appPageTitle.factoryReset'),
         },
       },
-      {
-        path: '/operations/key-clear',
-        name: 'key-clear',
-        component: KeyClear,
-        meta: {
-          title: i18n.global.t('appPageTitle.keyClear'),
-        },
-      },
-      {
-        path: '/operations/kvm',
-        name: 'kvm',
-        component: Kvm,
-        meta: {
-          title: i18n.global.t('appPageTitle.kvm'),
-        },
-      },
+      // Removed Key Clear and KVM routes for OnLogic environment
       {
         path: '/operations/firmware',
         name: 'firmware',
