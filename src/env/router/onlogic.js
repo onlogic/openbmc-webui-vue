@@ -2,7 +2,6 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import ChangePassword from '@/views/ChangePassword';
 import ConsoleLayout from '@/layouts/ConsoleLayout.vue';
 import DateTime from '@/views/Settings/DateTime';
-import EventLogs from '@/views/Logs/EventLogs';
 import FactoryReset from '@/views/Operations/FactoryReset';
 import Firmware from '@/views/Operations/Firmware';
 import Inventory from '@/views/HardwareStatus/Inventory';
@@ -16,7 +15,6 @@ import LoginLayout from '@/layouts/LoginLayout';
 import Network from '@/views/Settings/Network';
 import Overview from '@/views/Overview';
 import PageNotFound from '@/views/PageNotFound';
-import PostCodeLogs from '@/views/Logs/PostCodeLogs';
 import PowerRestorePolicy from '@/views/Settings/PowerRestorePolicy';
 import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Operations/RebootBmc';
@@ -32,7 +30,6 @@ import Power from '@/views/ResourceManagement/Power';
 import SnmpAlerts from '@/views/Settings/SnmpAlerts';
 import i18n from '@/i18n';
 
-import Dumps from '@/views/Logs/Dumps';
 
 const roles = {
   administrator: 'Administrator',
@@ -114,29 +111,7 @@ const routes = [
         },
       },
       {
-        path: '/logs/event-logs',
-        name: 'event-logs',
-        component: EventLogs,
-        meta: {
-          title: i18n.global.t('appPageTitle.eventLogs'),
-        },
-      },
-      {
-        path: '/logs/dumps',
-        name: 'dumps',
-        component: Dumps,
-        meta: {
-          title: i18n.global.t('appPageTitle.dumps'),
-        },
-      },
-      {
-        path: '/logs/post-code-logs',
-        name: 'post-code-logs',
-        component: PostCodeLogs,
-        meta: {
-          title: i18n.global.t('appPageTitle.postCodeLogs'),
-        },
-      },
+        // Log routes removed for OnLogic environment
       {
         path: '/hardware-status/inventory',
         name: 'inventory',

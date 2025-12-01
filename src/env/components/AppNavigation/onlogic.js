@@ -35,28 +35,6 @@ const AppNavigationMixin = {
           icon: 'iconOverview',
         },
         {
-          id: 'logs',
-          label: i18n.global.t('appNavigation.logs'),
-          icon: 'iconLogs',
-          children: [
-            {
-              id: 'event-logs',
-              label: i18n.global.t('appNavigation.eventLogs'),
-              route: '/logs/event-logs',
-            },
-            {
-              id: 'post-code-logs',
-              label: i18n.global.t('appNavigation.postCodeLogs'),
-              route: '/logs/post-code-logs',
-            },
-            {
-              id: 'dumps',
-              label: i18n.global.t('appNavigation.dumps'),
-              route: '/logs/dumps',
-            },
-          ],
-        },
-        {
           id: 'hardware-status',
           label: i18n.global.t('appNavigation.hardwareStatus'),
           icon: 'iconHealth',
