@@ -23,7 +23,6 @@ import SerialOverLanConsole from '@/views/Operations/SerialOverLan/SerialOverLan
 import ServerPowerOperations from '@/views/Operations/ServerPowerOperations';
 import Certificates from '@/views/SecurityAndAccess/Certificates';
 import VirtualMedia from '@/views/Operations/VirtualMedia';
-import Power from '@/views/ResourceManagement/Power';
 import i18n from '@/i18n';
 
 const roles = {
@@ -193,14 +192,7 @@ const routes = [
           title: i18n.global.t('appPageTitle.powerRestorePolicy'),
         },
       },
-      {
-        path: '/resource-management/power',
-        name: 'power',
-        component: Power,
-        meta: {
-          title: i18n.global.t('appPageTitle.power'),
-        },
-      },
+      // Resource Management Power route removed for OnLogic
       {
         path: '/operations/reboot-bmc',
         name: 'reboot-bmc',

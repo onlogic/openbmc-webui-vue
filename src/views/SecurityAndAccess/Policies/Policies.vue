@@ -28,7 +28,7 @@
             </b-form-checkbox>
           </b-col>
         </b-row>
-        <b-row class="setting-section">
+        <b-row v-if="showVtpm" class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
             <dl class="mt-3 mr-3 w-75">
               <dt>{{ $t('pagePolicies.ipmi') }}</dt>
@@ -78,7 +78,7 @@
             </b-form-checkbox>
           </b-col>
         </b-row>
-        <b-row class="setting-section">
+        <b-row v-if="showRtad" class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
             <dl class="mt-3 mr-3 w-75">
               <dt>{{ $t('pagePolicies.rtad') }}</dt>
@@ -151,6 +151,8 @@ export default {
   data() {
     return {
       $t: useI18n().t,
+      showVtpm: process.env.VUE_APP_ENV_NAME !== 'onlogic',
+      showRtad: process.env.VUE_APP_ENV_NAME !== 'onlogic',
       modifySSHPolicyDisabled:
         process.env.VUE_APP_MODIFY_SSH_POLICY_DISABLED === 'true',
       sessionTimeOutOptions: [
@@ -215,11 +217,13 @@ export default {
   },
   created() {
     this.startLoader();
-    Promise.all([
+    const promises = [
       this.$store.dispatch('policies/getBiosStatus'),
       this.$store.dispatch('policies/getNetworkProtocolStatus'),
       this.$store.dispatch('policies/getSessionTimeout'),
-    ]).finally(() => this.endLoader());
+    ];
+    // Optional: if vtpm hidden, skip fetching vtpm state if store call exists separately
+    Promise.all(promises).finally(() => this.endLoader());
   },
   methods: {
     changeIpmiProtocolState(state) {
