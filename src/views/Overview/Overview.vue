@@ -7,18 +7,18 @@
       class="mb-1"
     >
       <b-card-group deck>
-        <overview-server />
+        <overview-server v-if="showServer" />
         <overview-firmware />
       </b-card-group>
       <b-card-group deck>
         <overview-network />
-        <overview-power />
+        <overview-power v-if="showPower" />
       </b-card-group>
     </page-section>
     <page-section :section-title="$t('pageOverview.statusInformation')">
       <b-card-group deck>
         <overview-events />
-        <overview-inventory />
+        <overview-inventory v-if="showInventory" />
         <overview-dumps v-if="showDumps" />
       </b-card-group>
     </page-section>
@@ -58,6 +58,11 @@ export default {
     return {
       $t: useI18n().t,
       showDumps: process.env.VUE_APP_ENV_NAME === 'ibm',
+      // Hide inventory card for onlogic environment; shown otherwise
+      showInventory: process.env.VUE_APP_ENV_NAME !== 'onlogic',
+      // Hide power and server cards for onlogic environment
+      showPower: process.env.VUE_APP_ENV_NAME !== 'onlogic',
+      showServer: process.env.VUE_APP_ENV_NAME !== 'onlogic',
     };
   },
   created() {
@@ -71,31 +76,40 @@ export default {
     const firmwarePromise = new Promise((resolve) => {
       this.$root.$on('overview-firmware-complete', () => resolve());
     });
-    const inventoryPromise = new Promise((resolve) => {
-      this.$root.$on('overview-inventory-complete', () => resolve());
-    });
+    let inventoryPromise;
+    if (this.showInventory) {
+      inventoryPromise = new Promise((resolve) => {
+        this.$root.$on('overview-inventory-complete', () => resolve());
+      });
+    }
     const networkPromise = new Promise((resolve) => {
       this.$root.$on('overview-network-complete', () => resolve());
     });
-    const powerPromise = new Promise((resolve) => {
-      this.$root.$on('overview-power-complete', () => resolve());
-    });
+    let powerPromise;
+    if (this.showPower) {
+      powerPromise = new Promise((resolve) => {
+        this.$root.$on('overview-power-complete', () => resolve());
+      });
+    }
     const quicklinksPromise = new Promise((resolve) => {
       this.$root.$on('overview-quicklinks-complete', () => resolve());
     });
-    const serverPromise = new Promise((resolve) => {
-      this.$root.$on('overview-server-complete', () => resolve());
-    });
+    let serverPromise;
+    if (this.showServer) {
+      serverPromise = new Promise((resolve) => {
+        this.$root.$on('overview-server-complete', () => resolve());
+      });
+    }
 
     const promises = [
       eventsPromise,
       firmwarePromise,
-      inventoryPromise,
       networkPromise,
-      powerPromise,
       quicklinksPromise,
-      serverPromise,
     ];
+    if (powerPromise) promises.push(powerPromise);
+    if (serverPromise) promises.push(serverPromise);
+    if (inventoryPromise) promises.push(inventoryPromise);
     if (this.showDumps) promises.push(dumpsPromise);
     Promise.all(promises).finally(() => this.endLoader());
   },
