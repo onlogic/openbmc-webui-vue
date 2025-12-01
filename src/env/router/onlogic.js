@@ -30,7 +30,6 @@ import Power from '@/views/ResourceManagement/Power';
 import SnmpAlerts from '@/views/Settings/SnmpAlerts';
 import i18n from '@/i18n';
 
-
 const roles = {
   administrator: 'Administrator',
   operator: 'Operator',
@@ -110,7 +109,7 @@ const routes = [
           title: i18n.global.t('appPageTitle.profileSettings'),
         },
       },
-        // Log routes removed for OnLogic environment
+      // Log routes removed for OnLogic environment
       {
         path: '/hardware-status/inventory',
         name: 'inventory',
