@@ -110,7 +110,6 @@ const routes = [
           title: i18n.global.t('appPageTitle.profileSettings'),
         },
       },
-      {
         // Log routes removed for OnLogic environment
       {
         path: '/hardware-status/inventory',
