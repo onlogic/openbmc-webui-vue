@@ -97,7 +97,6 @@ const routes = [
           title: i18n.global.t('appPageTitle.profileSettings'),
         },
       },
-      // Log routes removed for OnLogic environment
       {
         path: '/hardware-status/inventory',
         name: 'inventory',
@@ -163,8 +162,6 @@ const routes = [
         },
       },
       {
-        // snmp-alerts route removed for OnLogic
-      {
         path: '/operations/factory-reset',
         name: 'factory-reset',
         component: FactoryReset,
@@ -172,7 +169,6 @@ const routes = [
           title: i18n.global.t('appPageTitle.factoryReset'),
         },
       },
-      // Removed Key Clear and KVM routes for OnLogic environment
       {
         path: '/operations/firmware',
         name: 'firmware',
