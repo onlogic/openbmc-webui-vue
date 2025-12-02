@@ -34,10 +34,9 @@
             class="mr-0"
             to="/"
             data-test-id="appHeader-container-overview"
-          >
             <img
-              svg-inline
-              class="header-logo"
+              v-if="isOnlogic"
+              class="header-logo onlogic-logo-header"
               src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_White-01.svg"
               :alt="altLogo"
             />

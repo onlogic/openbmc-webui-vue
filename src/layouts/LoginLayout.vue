@@ -7,9 +7,9 @@
             <!-- Use static src for svg-inline; switch via v-if -->
             <img
               v-if="isOnlogic"
-              svg-inline
-              width="300px"
-              height="77px"
+              class="onlogic-logo"
+              width="201px"
+              height="52px"
               src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_Color-01.svg"
               :alt="altLogo"
             />
@@ -77,6 +77,7 @@ export default {
   @include media-breakpoint-up('md') {
     background: $white;
     flex-direction: row;
+    gap: 0; // Remove gap so orange panel touches main panel
   }
 }
 
@@ -106,8 +107,9 @@ export default {
   align-items: flex-end;
   justify-content: flex-end;
   gap: $spacer * 1.5;
-  margin-right: $spacer * 3;
-  margin-bottom: $spacer;
+  // Remove margins so orange panel spans entire right side
+  margin-right: 0;
+  margin-bottom: 0;
   background-color: #ff8200;
 
   @include media-breakpoint-up('md') {
@@ -115,6 +117,9 @@ export default {
     padding-bottom: $spacer;
     flex: 1 1 25%;
     margin-bottom: 0;
+    // Ensure it stretches fully and no internal white shows
+    padding-left: $spacer * 1.5;
+    padding-right: $spacer * 1.5;
   }
 }
 
