@@ -8,7 +8,8 @@
             <img
               v-if="isOnlogic"
               svg-inline
-              width="150px"
+              width="300px"
+              height="77px"
               src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_Color-01.svg"
               :alt="altLogo"
             />
@@ -117,15 +118,4 @@ export default {
   }
 }
 
-.login-aside__logo-brand:not(:empty) {
-  &::after {
-    content: '';
-    display: inline-block;
-    height: 2.5rem;
-    width: 2px;
-    background-color: gray('200');
-    margin-left: $spacer * 1.5;
-    vertical-align: middle;
-  }
-}
 </style>

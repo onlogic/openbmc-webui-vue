@@ -35,19 +35,10 @@
             to="/"
             data-test-id="appHeader-container-overview"
           >
-            <!-- Use static src for svg-inline; switch via v-if -->
             <img
-              v-if="isOnlogic"
               svg-inline
               class="header-logo"
               src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_White-01.svg"
-              :alt="altLogo"
-            />
-            <img
-              v-else
-              svg-inline
-              class="header-logo"
-              src="@/assets/images/logo-header.svg"
               :alt="altLogo"
             />
           </b-navbar-brand>
