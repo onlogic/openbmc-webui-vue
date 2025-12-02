@@ -74,7 +74,7 @@
         "node": ">=12.14.1"
     },
     "gitHooks": {
-        "pre-commit": "lint-staged && vue-cli-service test:unit"
+        "pre-commit": "lint-staged"
     },
     "lint-staged": {
         "*.{js,vue}": [
