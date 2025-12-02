@@ -4,8 +4,7 @@
       <div class="login-main">
         <div>
           <div class="login-brand mb-5">
-            <img svg-inline width="90px" :src="logoSrc" :alt="altLogo"
-            />
+            <img svg-inline width="90px" :src="logoSrc" :alt="altLogo"/>
           </div>
           <h1 v-if="customizableGuiName" class="h3 mb-5">
             {{ customizableGuiName }}
