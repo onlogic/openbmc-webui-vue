@@ -36,9 +36,9 @@
             data-test-id="appHeader-container-overview"
           >
             <img
-              svg-inline
-              class="header-logo"
-              src="@/assets/images/logo-header.svg"
+              v-if="isOnlogic"
+              class="header-logo onlogic-logo-header"
+              src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_White-01.svg"
               :alt="altLogo"
             />
           </b-navbar-brand>
@@ -146,6 +146,9 @@ export default {
   },
   computed: {
     ...mapState('authentication', ['consoleWindow']),
+    isOnlogic() {
+      return process.env.VUE_APP_ENV_NAME === 'onlogic';
+    },
     isNavTagPresent() {
       return this.assetTag || this.modelType || this.serialNumber;
     },

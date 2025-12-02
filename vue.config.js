@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const LimitChunkCountPlugin = webpack.optimize.LimitChunkCountPlugin;
 
 module.exports = {
+  // Disable ESLint checks during development and production builds
+  lintOnSave: false,
   css: {
     loaderOptions: {
       sass: {

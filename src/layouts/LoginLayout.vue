@@ -4,7 +4,17 @@
       <div class="login-main">
         <div>
           <div class="login-brand mb-5">
+            <!-- Use static src for svg-inline; switch via v-if -->
             <img
+              v-if="isOnlogic"
+              class="onlogic-logo"
+              width="201px"
+              height="52px"
+              src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_Color-01.svg"
+              :alt="altLogo"
+            />
+            <img
+              v-else
               svg-inline
               width="90px"
               src="@/assets/images/login-company-logo.svg"
@@ -23,6 +33,7 @@
         </div>
         <div class="login-aside__logo-bmc">
           <img
+            v-if="!isOnlogic"
             svg-inline
             style="width: auto; height: 60px"
             src="@/assets/images/built-on-openbmc-logo.svg"
@@ -35,6 +46,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'LoginLayout',
   data() {
@@ -42,6 +54,11 @@ export default {
       altLogo: process.env.VUE_APP_COMPANY_NAME || 'OpenBMC',
       customizableGuiName: process.env.VUE_APP_GUI_NAME || '',
     };
+  },
+  computed: {
+    isOnlogic() {
+      return process.env.VUE_APP_ENV_NAME === 'onlogic';
+    },
   },
 };
 </script>
@@ -60,6 +77,7 @@ export default {
   @include media-breakpoint-up('md') {
     background: $white;
     flex-direction: row;
+    gap: 0; // Remove gap so orange panel touches main panel
   }
 }
 
@@ -89,26 +107,20 @@ export default {
   align-items: flex-end;
   justify-content: flex-end;
   gap: $spacer * 1.5;
-  margin-right: $spacer * 3;
-  margin-bottom: $spacer;
+  // Remove margins so orange panel spans entire right side
+  margin-right: 0;
+  margin-bottom: 0;
+  background-color: #ff8200;
 
   @include media-breakpoint-up('md') {
     min-height: 100vh;
     padding-bottom: $spacer;
     flex: 1 1 25%;
     margin-bottom: 0;
+    // Ensure it stretches fully and no internal white shows
+    padding-left: $spacer * 1.5;
+    padding-right: $spacer * 1.5;
   }
 }
 
-.login-aside__logo-brand:not(:empty) {
-  &::after {
-    content: '';
-    display: inline-block;
-    height: 2.5rem;
-    width: 2px;
-    background-color: gray('200');
-    margin-left: $spacer * 1.5;
-    vertical-align: middle;
-  }
-}
 </style>

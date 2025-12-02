@@ -32,19 +32,19 @@
     <table-chassis ref="chassis" />
 
     <!-- DIMM slot table -->
-    <table-dimm-slot ref="dimms" />
+    <table-dimm-slot v-if="showDimms" ref="dimms" />
 
     <!-- Fans table -->
-    <table-fans ref="fans" />
+    <table-fans v-if="showFans" ref="fans" />
 
     <!-- Power supplies table -->
-    <table-power-supplies ref="powerSupply" />
+    <table-power-supplies v-if="showPowerSupplies" ref="powerSupply" />
 
     <!-- Processors table -->
-    <table-processors ref="processors" />
+    <table-processors v-if="showProcessors" ref="processors" />
 
     <!-- Assembly table -->
-    <table-assembly ref="assembly" />
+    <table-assembly v-if="showAssemblies" ref="assembly" />
   </b-container>
 </template>
 
@@ -92,6 +92,11 @@ export default {
   data() {
     return {
       $t: useI18n().t,
+      showDimms: process.env.VUE_APP_ENV_NAME !== 'onlogic',
+      showFans: process.env.VUE_APP_ENV_NAME !== 'onlogic',
+      showPowerSupplies: process.env.VUE_APP_ENV_NAME !== 'onlogic',
+      showProcessors: process.env.VUE_APP_ENV_NAME !== 'onlogic',
+      showAssemblies: process.env.VUE_APP_ENV_NAME !== 'onlogic',
       links: [
         {
           id: 'system',
@@ -111,43 +116,26 @@ export default {
           href: '#chassis',
           linkText: i18n.global.t('pageInventory.chassis'),
         },
-        {
-          id: 'dimms',
-          dataRef: 'dimms',
-          href: '#dimms',
-          linkText: i18n.global.t('pageInventory.dimmSlot'),
-        },
-        {
-          id: 'fans',
-          dataRef: 'fans',
-          href: '#fans',
-          linkText: i18n.global.t('pageInventory.fans'),
-        },
-        {
-          id: 'powerSupply',
-          dataRef: 'powerSupply',
-          href: '#powerSupply',
-          linkText: i18n.global.t('pageInventory.powerSupplies'),
-        },
-        {
-          id: 'processors',
-          dataRef: 'processors',
-          href: '#processors',
-          linkText: i18n.global.t('pageInventory.processors'),
-        },
-        {
-          id: 'assembly',
-          dataRef: 'assembly',
-          href: '#assembly',
-          linkText: i18n.global.t('pageInventory.assemblies'),
-        },
+        // DIMM quicklink hidden for onlogic via computed filter
+        // Fans quicklink hidden via computed filter
+        // Power supplies quicklink hidden via computed filter
+        // Processors quicklink hidden via computed filter
+        // Assemblies quicklink hidden via computed filter
       ],
     };
   },
   computed: {
     quicklinkColumns() {
       // Chunk links array to 3 array's to display 3 items per column
-      return chunk(this.links, 3);
+      const filtered = this.links.filter((l) => {
+        if (!this.showDimms && l.id === 'dimms') return false;
+        if (!this.showFans && l.id === 'fans') return false;
+        if (!this.showPowerSupplies && l.id === 'powerSupply') return false;
+        if (!this.showProcessors && l.id === 'processors') return false;
+        if (!this.showAssemblies && l.id === 'assembly') return false;
+        return true;
+      });
+      return chunk(filtered, 3);
     },
   },
   created() {
@@ -158,42 +146,58 @@ export default {
     const chassisTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-chassis-complete', () => resolve());
     });
-    const dimmSlotTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-dimm-slot-complete', () => resolve());
-    });
-    const fansTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-fans-complete', () => resolve());
-    });
-    const powerSuppliesTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-power-supplies-complete', () =>
-        resolve(),
-      );
-    });
-    const processorsTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-processors-complete', () => resolve());
-    });
+    let dimmSlotTablePromise;
+    if (this.showDimms) {
+      dimmSlotTablePromise = new Promise((resolve) => {
+        this.$root.$on('hardware-status-dimm-slot-complete', () => resolve());
+      });
+    }
+    let fansTablePromise;
+    if (this.showFans) {
+      fansTablePromise = new Promise((resolve) => {
+        this.$root.$on('hardware-status-fans-complete', () => resolve());
+      });
+    }
+    let powerSuppliesTablePromise;
+    if (this.showPowerSupplies) {
+      powerSuppliesTablePromise = new Promise((resolve) => {
+        this.$root.$on('hardware-status-power-supplies-complete', () =>
+          resolve(),
+        );
+      });
+    }
+    let processorsTablePromise;
+    if (this.showProcessors) {
+      processorsTablePromise = new Promise((resolve) => {
+        this.$root.$on('hardware-status-processors-complete', () => resolve());
+      });
+    }
     const serviceIndicatorPromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-service-complete', () => resolve());
     });
     const systemTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-system-complete', () => resolve());
     });
-    const assemblyTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-assembly-complete', () => resolve());
-    });
+    let assemblyTablePromise;
+    if (this.showAssemblies) {
+      assemblyTablePromise = new Promise((resolve) => {
+        this.$root.$on('hardware-status-assembly-complete', () => resolve());
+      });
+    }
     // Combine all child component Promises to indicate
     // when page data load complete
-    Promise.all([
+    const promises = [
       bmcManagerTablePromise,
       chassisTablePromise,
-      dimmSlotTablePromise,
-      fansTablePromise,
-      powerSuppliesTablePromise,
-      processorsTablePromise,
       serviceIndicatorPromise,
       systemTablePromise,
-      assemblyTablePromise,
-    ]).finally(() => this.endLoader());
+    ];
+    if (fansTablePromise) promises.push(fansTablePromise);
+    if (powerSuppliesTablePromise) promises.push(powerSuppliesTablePromise);
+    if (processorsTablePromise) promises.push(processorsTablePromise);
+    if (assemblyTablePromise) promises.push(assemblyTablePromise);
+    if (dimmSlotTablePromise) promises.push(dimmSlotTablePromise);
+    Promise.all(promises).finally(() => this.endLoader());
   },
 };
 </script>
