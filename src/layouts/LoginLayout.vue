@@ -4,7 +4,21 @@
       <div class="login-main">
         <div>
           <div class="login-brand mb-5">
-            <img svg-inline width="90px" :src="logoSrc" :alt="altLogo" />
+            <!-- Use static src for svg-inline; switch via v-if -->
+            <img
+              v-if="isOnlogic"
+              svg-inline
+              width="150px"
+              src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_Color-01.svg"
+              :alt="altLogo"
+            />
+            <img
+              v-else
+              svg-inline
+              width="90px"
+              src="@/assets/images/login-company-logo.svg"
+              :alt="altLogo"
+            />
           </div>
           <h1 v-if="customizableGuiName" class="h3 mb-5">
             {{ customizableGuiName }}
@@ -18,6 +32,7 @@
         </div>
         <div class="login-aside__logo-bmc">
           <img
+            v-if="!isOnlogic"
             svg-inline
             style="width: auto; height: 60px"
             src="@/assets/images/built-on-openbmc-logo.svg"
@@ -30,9 +45,6 @@
 </template>
 
 <script>
-import defaultLogo from '@/assets/images/login-company-logo.svg';
-// Environment-specific logo (OnLogic)
-import onlogicLogo from '@/env/assets/images/OnLogic_BMC_Horizontal-Logo_Color-01.svg';
 
 export default {
   name: 'LoginLayout',
@@ -43,11 +55,8 @@ export default {
     };
   },
   computed: {
-    logoSrc() {
-      if (process.env.VUE_APP_ENV_NAME === 'onlogic') {
-        return onlogicLogo;
-      }
-      return defaultLogo;
+    isOnlogic() {
+      return process.env.VUE_APP_ENV_NAME === 'onlogic';
     },
   },
 };
@@ -98,6 +107,7 @@ export default {
   gap: $spacer * 1.5;
   margin-right: $spacer * 3;
   margin-bottom: $spacer;
+  background-color: #ff8200;
 
   @include media-breakpoint-up('md') {
     min-height: 100vh;

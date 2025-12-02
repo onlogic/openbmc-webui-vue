@@ -35,10 +35,19 @@
             to="/"
             data-test-id="appHeader-container-overview"
           >
+            <!-- Use static src for svg-inline; switch via v-if -->
             <img
+              v-if="isOnlogic"
               svg-inline
               class="header-logo"
-              :src="headerLogoSrc"
+              src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_White-01.svg"
+              :alt="altLogo"
+            />
+            <img
+              v-else
+              svg-inline
+              class="header-logo"
+              src="@/assets/images/logo-header.svg"
               :alt="altLogo"
             />
           </b-navbar-brand>
@@ -119,8 +128,6 @@ import LoadingBar from '@/components/Global/LoadingBar';
 import { useI18n } from 'vue-i18n';
 import { mapState } from 'vuex';
 import i18n from '@/i18n';
-import defaultHeaderLogo from '@/assets/images/logo-header.svg';
-import onlogicHeaderLogo from '@/env/assets/images/OnLogic_BMC_Horizontal-Logo_White-01.svg';
 
 export default {
   name: 'AppHeader',
@@ -148,9 +155,8 @@ export default {
   },
   computed: {
     ...mapState('authentication', ['consoleWindow']),
-    headerLogoSrc() {
-      if (process.env.VUE_APP_ENV_NAME === 'onlogic') return onlogicHeaderLogo;
-      return defaultHeaderLogo;
+    isOnlogic() {
+      return process.env.VUE_APP_ENV_NAME === 'onlogic';
     },
     isNavTagPresent() {
       return this.assetTag || this.modelType || this.serialNumber;
