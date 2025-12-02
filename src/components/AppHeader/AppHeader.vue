@@ -34,6 +34,7 @@
             class="mr-0"
             to="/"
             data-test-id="appHeader-container-overview"
+          >
             <img
               v-if="isOnlogic"
               class="header-logo onlogic-logo-header"
