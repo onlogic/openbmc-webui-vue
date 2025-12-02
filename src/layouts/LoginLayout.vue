@@ -7,7 +7,7 @@
             <img
               svg-inline
               width="90px"
-              src="@/assets/images/login-company-logo.svg"
+              :src="logoSrc"
               :alt="altLogo"
             />
           </div>
@@ -35,6 +35,10 @@
 </template>
 
 <script>
+import defaultLogo from '@/assets/images/login-company-logo.svg';
+// Environment-specific logo (OnLogic)
+import onlogicLogo from '@/env/assets/images/OnLogic_BMC_Horizontal-Logo_Color-01.svg';
+
 export default {
   name: 'LoginLayout',
   data() {
@@ -42,6 +46,14 @@ export default {
       altLogo: process.env.VUE_APP_COMPANY_NAME || 'OpenBMC',
       customizableGuiName: process.env.VUE_APP_GUI_NAME || '',
     };
+  },
+  computed: {
+    logoSrc() {
+      if (process.env.VUE_APP_ENV_NAME === 'onlogic') {
+        return onlogicLogo;
+      }
+      return defaultLogo;
+    },
   },
 };
 </script>
