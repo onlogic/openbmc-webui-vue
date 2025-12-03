@@ -121,7 +121,9 @@ export default {
       this.term.setOption('theme', SOL_THEME);
 
       this.term.open(this.$refs.panel);
-      fitAddon.fit();
+      this.$nextTick(() => {
+        fitAddon.fit();
+      });
 
       this.resizeConsoleWindow = throttle(() => {
         fitAddon.fit();
