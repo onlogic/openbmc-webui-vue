@@ -300,7 +300,7 @@ export default {
 
   .navbar {
     padding: 0;
-    background-color: $navbar-color;
+    background-color: #003057;
     @include media-breakpoint-up($responsive-layout-bp) {
       height: $header-height;
     }

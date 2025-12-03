@@ -100,3 +100,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.card-link {
+  color: #0077c8;
+}
+</style>

@@ -210,6 +210,14 @@ svg {
   }
 }
 
+[data-test-id='nav-item-overview'] {
+  &.nav-link--current,
+  &:hover,
+  &:focus {
+    color: #0077c8;
+  }
+}
+
 .nav-container {
   position: fixed;
   width: $navigation-width;
