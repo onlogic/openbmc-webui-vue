@@ -43,7 +43,6 @@
             />
             <img
               v-else
-              svg-inline
               class="header-logo"
               src="@/assets/images/logo-header.svg"
               :alt="altLogo"
@@ -394,6 +393,11 @@ export default {
       flex-flow: wrap;
     }
   }
+}
+
+.header-logo {
+  height: 100%;
+  width: auto;
 }
 
 .navbar-brand {
