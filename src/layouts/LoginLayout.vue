@@ -46,7 +46,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'LoginLayout',
   data() {
@@ -59,6 +58,14 @@ export default {
     isOnlogic() {
       return process.env.VUE_APP_ENV_NAME === 'onlogic';
     },
+  },
+  mounted() {
+    // Set color on mount
+    document.body.style.backgroundColor = '#ff8200';
+  },
+  beforeUnmount() {
+    // Revert to default when leaving this page
+    document.body.style.backgroundColor = '';
   },
 };
 </script>
@@ -122,5 +129,4 @@ export default {
     padding-right: $spacer * 1.5;
   }
 }
-
 </style>

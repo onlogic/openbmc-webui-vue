@@ -37,8 +37,14 @@
           >
             <img
               v-if="isOnlogic"
-              class="header-logo onlogic-logo-header"
+              class="header-logo"
               src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_White-01.svg"
+              :alt="altLogo"
+            />
+            <img
+              v-else
+              class="header-logo"
+              src="@/assets/images/logo-header.svg"
               :alt="altLogo"
             />
           </b-navbar-brand>
@@ -387,6 +393,11 @@ export default {
       flex-flow: wrap;
     }
   }
+}
+
+.header-logo {
+  height: 100%;
+  width: auto;
 }
 
 .navbar-brand {

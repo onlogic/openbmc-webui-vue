@@ -28,7 +28,7 @@
             </b-form-checkbox>
           </b-col>
         </b-row>
-        <b-row v-if="showVtpm" class="setting-section">
+        <b-row v-if="showIpmi" class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
             <dl class="mt-3 mr-3 w-75">
               <dt>{{ $t('pagePolicies.ipmi') }}</dt>
@@ -53,7 +53,7 @@
             </b-form-checkbox>
           </b-col>
         </b-row>
-        <b-row class="setting-section">
+        <b-row v-if="showVtpm" class="setting-section">
           <b-col class="d-flex align-items-center justify-content-between">
             <dl class="mt-3 mr-3 w-75">
               <dt>{{ $t('pagePolicies.vtpm') }}</dt>
@@ -153,6 +153,7 @@ export default {
       $t: useI18n().t,
       showVtpm: process.env.VUE_APP_ENV_NAME !== 'onlogic',
       showRtad: process.env.VUE_APP_ENV_NAME !== 'onlogic',
+      showIpmi: true,
       modifySSHPolicyDisabled:
         process.env.VUE_APP_MODIFY_SSH_POLICY_DISABLED === 'true',
       sessionTimeOutOptions: [
