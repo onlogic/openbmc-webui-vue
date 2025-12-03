@@ -56,4 +56,13 @@ export default {
 .input-password-toggle-container {
   position: relative;
 }
+.input-action-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  svg {
+    fill: #0077c8;
+  }
+}
 </style>
