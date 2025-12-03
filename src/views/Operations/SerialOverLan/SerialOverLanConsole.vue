@@ -173,4 +173,8 @@ export default {
   width: 97%;
   margin: 1.5%;
 }
+
+.btn-link {
+  color: #333f48;
+}
 </style>

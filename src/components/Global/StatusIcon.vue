@@ -41,17 +41,17 @@ export default {
     color: theme-color('info');
   }
   &.success {
-    color: theme-color('success');
+    color: #209925;
   }
   &.danger {
-    color: theme-color('danger');
+    color: #AD1815;
   }
   &.secondary {
     color: gray('600');
     transform: rotate(-45deg);
   }
   &.warning {
-    color: theme-color('warning');
+    color: #F5AB0A;
   }
 
   svg {

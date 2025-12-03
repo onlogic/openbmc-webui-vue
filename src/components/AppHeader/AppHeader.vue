@@ -295,7 +295,7 @@ export default {
   }
 
   .nav-item {
-    fill: theme-color('light');
+    fill: #FFFFFF;
   }
 
   .navbar {
