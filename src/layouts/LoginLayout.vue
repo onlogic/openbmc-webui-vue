@@ -1,6 +1,7 @@
 <template>
   <main>
-    <div class="login-container" :class="{ onlogic: isOnlogic }">
+    background-color: #ff8200;
+    <div class="login-container">
       <div class="login-main">
         <div>
           <div class="login-brand mb-5">
@@ -120,21 +121,5 @@ export default {
     padding-left: $spacer * 1.5;
     padding-right: $spacer * 1.5;
   }
-}
-
-// OnLogic: make entire login screen background orange
-.login-container.onlogic {
-  background-color: #ff8200;
-  @include media-breakpoint-up('md') {
-    background-color: #ff8200; // override white on larger screens
-  }
-}
-
-.login-container.onlogic .login-main {
-  background-color: #ff8200;
-}
-
-.login-container.onlogic {
-  color: #000; // default text stays readable on orange
 }
 </style>
