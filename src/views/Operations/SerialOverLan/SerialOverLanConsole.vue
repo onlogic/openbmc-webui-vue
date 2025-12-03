@@ -83,6 +83,7 @@ export default {
     },
   },
   created() {
+    this.isFullWindow = this.$route.query.isFullWindow === 'false' ? false : true;
     this.$store.dispatch('global/getSystemInfo');
   },
   mounted() {
@@ -155,7 +156,7 @@ export default {
     },
     openConsoleWindow() {
       window.open(
-        '#/console/serial-over-lan-console',
+        '#/console/serial-over-lan-console?isFullWindow=false',
         '_blank',
         'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=600,height=550',
       );
