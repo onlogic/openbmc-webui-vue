@@ -47,7 +47,7 @@ export default {
     color: #AD1815;
   }
   &.secondary {
-    color: gray('600');
+    color: #ffffff;
     transform: rotate(-45deg);
   }
   &.warning {
