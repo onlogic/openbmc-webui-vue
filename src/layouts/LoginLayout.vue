@@ -1,6 +1,5 @@
 <template>
   <main>
-    background-color: #ff8200;
     <div class="login-container">
       <div class="login-main">
         <div>
@@ -123,3 +122,7 @@ export default {
   }
 }
 </style>
+// Inside a specific page component (e.g., Login.vue) export default { mounted()
+{ // Set color on mount document.body.style.backgroundColor = '#ff8200'; },
+beforeDestroy() { // Revert to default when leaving this page
+document.body.style.backgroundColor = ''; } }
