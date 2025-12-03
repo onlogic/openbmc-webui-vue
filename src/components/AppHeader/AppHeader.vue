@@ -36,9 +36,16 @@
             data-test-id="appHeader-container-overview"
           >
             <img
-              svg-inline
+              v-if="isOnlogic"
               class="header-logo"
               src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_White-01.svg"
+              :alt="altLogo"
+            />
+            <img
+              v-else
+              svg-inline
+              class="header-logo"
+              src="@/assets/images/logo-header.svg"
               :alt="altLogo"
             />
           </b-navbar-brand>
