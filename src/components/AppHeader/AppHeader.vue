@@ -38,7 +38,7 @@
             <img
               svg-inline
               class="header-logo"
-              src="@/env/assets/images/OnLogic_BMC_Horizontal-White-01.svg"
+              src="@/env/assets/images/OnLogic_BMC_Horizontal-Logo_White-01.svg"
               :alt="altLogo"
             />
           </b-navbar-brand>
