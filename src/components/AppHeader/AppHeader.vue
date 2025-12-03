@@ -283,7 +283,7 @@ export default {
     padding: 0.68rem 1rem !important;
 
     &:hover {
-      background-color: theme-color-level(light, 10);
+      background-color: #0077C8;
     }
     &:active {
       background-color: theme-color-level(light, 9);
@@ -295,12 +295,12 @@ export default {
   }
 
   .nav-item {
-    fill: theme-color('light');
+    fill: #FFFFFF;
   }
 
   .navbar {
     padding: 0;
-    background-color: $navbar-color;
+    background-color: #003057;
     @include media-breakpoint-up($responsive-layout-bp) {
       height: $header-height;
     }
