@@ -172,6 +172,10 @@ export default {
   overflow: auto;
 }
 
+.full-window-container #terminal {
+  height: 600px;
+}
+
 .full-window-container {
   width: 97%;
   margin: 1.5%;
