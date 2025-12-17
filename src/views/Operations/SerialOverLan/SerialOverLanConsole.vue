@@ -182,6 +182,7 @@ export default {
 .full-window-container {
   width: 97%;
   margin: 1.5%;
+  height: 90vh;
 }
 
 .btn-link {
