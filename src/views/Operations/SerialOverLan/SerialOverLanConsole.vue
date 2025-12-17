@@ -170,6 +170,8 @@ export default {
 
 #terminal {
   overflow: auto;
+  height: 100%;
+  width: 100%;
 }
 
 .terminal-container {
