@@ -170,11 +170,19 @@ export default {
 
 #terminal {
   overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.terminal-container {
+  width: 1200px;
+  height: 800px;
 }
 
 .full-window-container {
   width: 97%;
   margin: 1.5%;
+  height: 90vh;
 }
 
 .btn-link {
