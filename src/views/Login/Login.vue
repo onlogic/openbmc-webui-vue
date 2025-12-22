@@ -154,12 +154,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-[data-test-id='login-button-submit'] {
-  background-color: #0077c8;
-  color: #ffffff;
-  padding: 8px 32px;
-  border-radius: 4px;
-  border-color: #0077c8; // Match border color to background
-}
-</style>
+<style lang="scss" scoped></style>
