@@ -29,6 +29,10 @@
   border-radius: 4px;
   border-color: #0077c8;
   fill: currentColor;
+  &:hover {
+    background-color: #003057;
+    border-color: #003057;
+  }
   &:focus,
   &:not(:disabled):not(.disabled):active:focus {
     border-color: $white;
