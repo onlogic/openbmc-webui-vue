@@ -65,6 +65,7 @@ dt .btn-link {
 #table-session-logs .btn-link,
 [data-test-id='certificates-button-generateCsr'],
 [data-test-id='userManagement-button-accountPolicySettings'],
-[data-test-id='userManagement-button-viewPrivilegeRoleDescriptions'] {
+[data-test-id='userManagement-button-viewPrivilegeRoleDescriptions'],
+[data-test-id="tableFilter-button-clearAll"] {
   color: #0077c8;
 }

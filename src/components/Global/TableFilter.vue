@@ -43,7 +43,7 @@
         </b-form-group>
       </b-dropdown-form>
       <b-dropdown-item-button
-        variant="primary"
+        variant="link"
         data-test-id="tableFilter-button-clearAll"
         @click="clearAllTags"
       >
