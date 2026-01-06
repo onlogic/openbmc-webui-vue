@@ -265,6 +265,7 @@ export default {
             {
               title: i18n.global.t('pageSessions.modal.disconnectTitle'),
               okTitle: i18n.global.t('pageSessions.action.disconnect'),
+              okVariant: 'primary',
               cancelTitle: i18n.global.t('global.action.cancel'),
               autoFocusButton: 'ok',
             },
@@ -289,6 +290,7 @@ export default {
                 this.selectedRows.length,
               ),
               okTitle: i18n.global.t('pageSessions.action.disconnect'),
+              okVariant: 'primary',
               cancelTitle: i18n.global.t('global.action.cancel'),
               autoFocusButton: 'ok',
             },
