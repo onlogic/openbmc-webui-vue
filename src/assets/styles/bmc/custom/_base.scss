@@ -67,6 +67,7 @@ dt .btn-link {
 [data-test-id='userManagement-button-accountPolicySettings'],
 [data-test-id='userManagement-button-viewPrivilegeRoleDescriptions'],
 [data-test-id='tableFilter-button-clearAll'],
-.table-row-action [title="Replace certificate"] {
+.table-row-action [title="Replace certificate"],
+.table-row-action [title="Edit user"] {
   color: #0077c8;
 }
