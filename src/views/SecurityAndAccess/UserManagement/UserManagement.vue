@@ -3,7 +3,11 @@
     <page-title />
     <b-row>
       <b-col xl="9" class="text-right">
-        <b-button variant="link" @click="initModalSettings">
+        <b-button
+          variant="link"
+          data-test-id="userManagement-button-accountPolicySettings"
+          @click="initModalSettings"
+        >
           <icon-settings />
           {{ $t('pageUserManagement.accountPolicySettings') }}
         </b-button>

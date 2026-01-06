@@ -62,6 +62,9 @@ dt .btn-link {
 }
 
 .table-row-action .btn-link,
-#table-session-logs .btn-link {
+#table-session-logs .btn-link,
+[data-test-id='certificates-button-generateCsr'],
+[data-test-id='userManagement-button-accountPolicySettings'],
+[data-test-id='userManagement-button-viewPrivilegeRoleDescriptions'] {
   color: #0077c8;
 }
