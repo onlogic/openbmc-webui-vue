@@ -68,6 +68,11 @@ dt .btn-link {
 [data-test-id='userManagement-button-viewPrivilegeRoleDescriptions'],
 [data-test-id='tableFilter-button-clearAll'],
 [title='Replace certificate'],
+[title='Delete certificate'],
+[title='pageNetwork.table.deleteDns'],
+[title='Delete IPv6 address'],
+[title='Delete IPv4 address'],
+[title='Delete user'],
 [title='Edit user'] {
   color: #0077c8;
 }
