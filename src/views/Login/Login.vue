@@ -101,14 +101,6 @@ export default {
           value: 'en-US',
           text: 'English',
         },
-        {
-          value: 'ka-GE',
-          text: 'ქართული',
-        },
-        {
-          value: 'ru-RU',
-          text: 'Русский',
-        },
       ],
     };
   },
