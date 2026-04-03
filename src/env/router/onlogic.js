@@ -21,7 +21,6 @@ import SerialOverLan from '@/views/Operations/SerialOverLan';
 import SerialOverLanConsole from '@/views/Operations/SerialOverLan/SerialOverLanConsole';
 import ServerPowerOperations from '@/views/Operations/ServerPowerOperations';
 import Certificates from '@/views/SecurityAndAccess/Certificates';
-import VirtualMedia from '@/views/Operations/VirtualMedia';
 import i18n from '@/i18n';
 
 const roles = {
@@ -207,15 +206,6 @@ const routes = [
         component: ServerPowerOperations,
         meta: {
           title: i18n.global.t('appPageTitle.serverPowerOperations'),
-        },
-      },
-      {
-        path: '/operations/virtual-media',
-        name: 'virtual-media',
-        component: VirtualMedia,
-        meta: {
-          title: i18n.global.t('appPageTitle.virtualMedia'),
-          exclusiveToRoles: [roles.administrator],
         },
       },
       {
