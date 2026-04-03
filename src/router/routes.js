@@ -22,7 +22,6 @@ import ProfileSettings from '@/views/ProfileSettings';
 import RebootBmc from '@/views/Operations/RebootBmc';
 import Policies from '@/views/SecurityAndAccess/Policies';
 import KeyClear from '@/views/Operations/KeyClear';
-import Sensors from '@/views/HardwareStatus/Sensors';
 import SerialOverLan from '@/views/Operations/SerialOverLan';
 import SerialOverLanConsole from '@/views/Operations/SerialOverLan/SerialOverLanConsole';
 import ServerPowerOperations from '@/views/Operations/ServerPowerOperations';
@@ -143,14 +142,6 @@ const routes = [
         component: Inventory,
         meta: {
           title: i18n.global.t('appPageTitle.inventory'),
-        },
-      },
-      {
-        path: '/hardware-status/sensors',
-        name: 'sensors',
-        component: Sensors,
-        meta: {
-          title: i18n.global.t('appPageTitle.sensors'),
         },
       },
       {
