@@ -881,9 +881,9 @@
         "status": "Status",
         "subTitle": "SOL console redirects the server's serial port output to this window.",
         "consoleCommands": {
-            "refreshBios": "Esc+r: Refresh/Redraw BIOS menu",
-            "bootOptions": "F10: Boot Options menu",
-            "biosMenu": "Delete: BIOS menu"
+            "refreshBios": "Refresh/Redraw BIOS menu",
+            "bootOptions": "Boot Options menu",
+            "biosMenu": "BIOS menu"
         }
     },
     "pageServerPowerOperations": {
