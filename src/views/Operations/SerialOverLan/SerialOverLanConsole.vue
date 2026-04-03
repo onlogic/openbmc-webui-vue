@@ -39,6 +39,20 @@
       </b-col>
     </b-row>
     <div id="terminal" ref="panel"></div>
+    <div class="mt-3">
+      <p class="mb-0">
+        <strong>Esc+r:</strong>
+        {{ $t('pageSerialOverLan.consoleCommands.refreshBios') }}
+      </p>
+      <p class="mb-0">
+        <strong>F10 during boot:</strong>
+        {{ $t('pageSerialOverLan.consoleCommands.bootOptions') }}
+      </p>
+      <p class="mb-0">
+        <strong>Delete during boot:</strong>
+        {{ $t('pageSerialOverLan.consoleCommands.biosMenu') }}
+      </p>
+    </div>
   </div>
 </template>
 

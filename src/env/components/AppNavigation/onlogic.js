@@ -77,12 +77,6 @@ const AppNavigationMixin = {
               label: i18n.global.t('appNavigation.serverPowerOperations'),
               route: '/operations/server-power-operations',
             },
-            {
-              id: 'virtual-media',
-              label: i18n.global.t('appNavigation.virtualMedia'),
-              route: '/operations/virtual-media',
-              exclusiveToRoles: [roles.administrator],
-            },
           ],
         },
         {
