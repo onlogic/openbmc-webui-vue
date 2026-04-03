@@ -152,7 +152,7 @@ const routes = [
         meta: {
           title: i18n.global.t('appPageTitle.sensors'),
         },
-      },
+      },      
       {
         path: '/security-and-access/sessions',
         name: 'sessions',

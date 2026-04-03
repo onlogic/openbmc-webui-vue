@@ -879,7 +879,12 @@
         "disconnected": "Disconnected",
         "openNewTab": "Open in new tab",
         "status": "Status",
-        "subTitle": "SOL console redirects the server's serial port output to this window."
+        "subTitle": "SOL console redirects the server's serial port output to this window.",
+        "consoleCommands": {
+            "refreshBios": "Refresh/Redraw BIOS menu",
+            "bootOptions": "Boot Options menu",
+            "biosMenu": "BIOS menu"
+        }
     },
     "pageServerPowerOperations": {
         "currentStatus": "Current status",

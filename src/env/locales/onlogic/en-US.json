@@ -296,8 +296,8 @@
             "resetOptionsLabel": "Reset options",
             "resetBiosOptionLabel": "Reset host settings only",
             "resetBiosOptionHelperText": "Resets firmware settings including: Platform keystore, partition NVRAM, and partition configurations.",
-            "resetToDefaultsOptionLabel": "Reset BMC and host settings",
-            "resetToDefaultsOptionHelperText": "In addition to host settings, this option resets BMC settings, including: all BMC account data, all changed passwords, all policies, LDAP configurations, network addresses, and time of day."
+            "resetToDefaultsOptionLabel": "Reset BMC",
+            "resetToDefaultsOptionHelperText": "Resets the BMC settings: all BMC account data, all changed passwords, all policies, LDAP configurations, network addresses, and time of day."
         },
         "modal": {
             "resetBiosTitle": "Reset host settings",
@@ -307,9 +307,9 @@
                 "item1": "All manual settings will be deleted.",
                 "item2": "Partition configurations and the platform keystore may be recovered if backups exist."
             },
-            "resetToDefaultsTitle": "Reset BMC and host settings",
+            "resetToDefaultsTitle": "Reset BMC",
             "resetToDefaultsHeader": "Do you want to reset both the BMC and host settings?",
-            "resetToDefaultsSubmitText": "Reset BMC and host settings",
+            "resetToDefaultsSubmitText": "Reset BMC",
             "resetToDefaultsSettingsList": {
                 "item1": "All manual settings will be deleted.",
                 "item2": "Partition configurations and the platform keystore may be recovered if backups exist.",

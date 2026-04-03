@@ -44,11 +44,6 @@ const AppNavigationMixin = {
               label: i18n.global.t('appNavigation.inventory'),
               route: '/hardware-status/inventory',
             },
-            {
-              id: 'sensors',
-              label: i18n.global.t('appNavigation.sensors'),
-              route: '/hardware-status/sensors',
-            },
           ],
         },
         {
@@ -81,12 +76,6 @@ const AppNavigationMixin = {
               id: 'server-power-operations',
               label: i18n.global.t('appNavigation.serverPowerOperations'),
               route: '/operations/server-power-operations',
-            },
-            {
-              id: 'virtual-media',
-              label: i18n.global.t('appNavigation.virtualMedia'),
-              route: '/operations/virtual-media',
-              exclusiveToRoles: [roles.administrator],
             },
           ],
         },

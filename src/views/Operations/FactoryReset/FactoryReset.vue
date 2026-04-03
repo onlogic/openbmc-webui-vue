@@ -14,18 +14,6 @@
             >
               <b-form-radio
                 class="mb-1"
-                value="resetBios"
-                aria-describedby="reset-bios"
-                data-test-id="factoryReset-radio-resetBios"
-              >
-                {{ $t('pageFactoryReset.form.resetBiosOptionLabel') }}
-              </b-form-radio>
-              <b-form-text id="reset-bios" class="ml-4 mb-3">
-                {{ $t('pageFactoryReset.form.resetBiosOptionHelperText') }}
-              </b-form-text>
-
-              <b-form-radio
-                class="mb-1"
                 value="resetToDefaults"
                 aria-describedby="reset-to-defaults"
                 data-test-id="factoryReset-radio-resetToDefaults"
@@ -69,7 +57,7 @@ export default {
   data() {
     return {
       $t: useI18n().t,
-      resetOption: 'resetBios',
+      resetOption: 'resetToDefaults',
     };
   },
   created() {
@@ -80,11 +68,7 @@ export default {
       this.$bvModal.show('modal-reset');
     },
     onOkConfirm() {
-      if (this.resetOption == 'resetBios') {
-        this.onResetBiosConfirm();
-      } else {
-        this.onResetToDefaultsConfirm();
-      }
+      this.onResetToDefaultsConfirm();
     },
     onResetBiosConfirm() {
       this.$store

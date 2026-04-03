@@ -70,7 +70,7 @@ const AppNavigationMixin = {
               id: 'sensors',
               label: i18n.global.t('appNavigation.sensors'),
               route: '/hardware-status/sensors',
-            },
+            },            
           ],
         },
         {
